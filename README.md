@@ -1,56 +1,27 @@
-# Vitrine Pro
+# Vitrine Pro — VitrinePRO_24
 
-Projeto front-end estático de marketplace com login, catálogo, favoritos, carrinho e painel administrativo.
+## Estrutura
+- `frontend/`: interface HTML, CSS e JavaScript.
+- `backend/`: API Node.js/Express e integração MySQL.
+- `tests/`: testes automatizados de regressão estática.
 
-## Estrutura do projeto
+## Atualização
+1. Faça backup da pasta em uso.
+2. Extraia o ZIP da V24 em uma nova pasta `VitrinePRO_24`.
+3. Copie o seu `backend/.env` da versão anterior para `VitrinePRO_24/backend/.env`. O arquivo não é distribuído.
+4. Abra o terminal em `VitrinePRO_24/backend` e execute `npm install`.
+5. Execute `npm run check` e depois `npm start`.
+6. Acesse `http://localhost:3000`.
 
-```text
-VitrinePro/
-├── index.html
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── app.js
-├── .gitignore
-├── README.md
-└── LICENSE (opcional)
-```
+## O que há na V24
+- Sessão restaurada após F5 e alteração de senha persistida em MySQL (herdadas e validadas na V23.1).
+- Bloqueio de operações de fornecedor quando o cadastro não está ativo, inclusive com token anterior à mudança de status.
+- Painel administrativo com clientes e fornecedores em listas separadas.
+- Menu de navegação recolhível em telas menores.
+- Testes automatizados de regressão estática.
 
-## Como abrir
+## Banco e credenciais
+Não executar `schema.sql`, `seed.js` ou migrations antigas sobre o banco já utilizado. Nenhuma migração é necessária para a V24. Preserve os dados existentes. Nunca compartilhe `backend/.env`.
 
-### Opção 1
-Abra diretamente o arquivo `index.html` no navegador.
-
-### Opção 2
-Use um servidor local:
-
-```bash
-cd VitrinePro
-python -m http.server 8000
-```
-
-Depois acesse:
-
-```text
-http://localhost:8000
-```
-
-## Usuários de demonstração
-
-- Cliente: `cliente@vitrinepro.com`
-- Fornecedor: `fornecedor@grupofiori.com`
-- Admin: `admin@vitrinepro.com`
-
-Senha padrão para todos os acessos: `123456`
-
-## GitHub
-
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin <URL_DO_REPOSITORIO>
-git push -u origin main
-```
+## Observação sobre testes
+`npm run check` valida a sintaxe do backend/frontend e executa os testes estáticos. Os testes reais de login, MySQL, permissões e interface precisam ser feitos com o banco local ativo.

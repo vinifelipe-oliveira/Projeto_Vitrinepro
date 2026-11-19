@@ -1,0 +1,21 @@
+{
+  "name": "vitrinepro-backend",
+  "version": "1.4.0",
+  "private": true,
+  "description": "Vitrine Pro 24 - segurança, responsividade, administração e testes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check seed.js && node --check ../frontend/js/app.js && npm test",
+    "test": "node --test ../tests/*.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5",
+    "dotenv": "^16.4.7",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
